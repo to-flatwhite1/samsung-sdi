@@ -10,11 +10,11 @@ import { Dialog, DialogPanel } from '@headlessui/react';
 
 const navigation = [
     { name: 'SAMSUNG SDI', href: '#' },
-    { name: 'BUSINESS', href: '#' },
-    { name: 'IR', href: '#' },
-    { name: 'CAREER', href: '#' },
-    { name: 'ESG', href: '#' },
-    { name: 'PR', href: '#' },
+    { name: 'BUSINESS', href: '#', id: 'business' },
+    { name: 'ESG', href: '#', id: 'ESG' },
+    { name: 'CAREER', href: '#', id: 'career' },
+    { name: 'IR', href: '#', id: 'stock-card' },
+    { name: 'PR', href: '#', id: 'pr' },
 ];
 
 const Header = ({ type = 'type1', title, sharing, prev }) => {
@@ -25,7 +25,7 @@ const Header = ({ type = 'type1', title, sharing, prev }) => {
             // 메인헤더
             case 'type1':
                 return (
-                    <header className="fixed top-0 left-0 right-0 z-50 bg-white-700 backdrop-blur-md flex items-center h-20">
+                    <header className="fixed top-0 left-0 right-0 z-50 bg-white backdrop-blur-md flex items-center h-20">
                         <Container size="full" className="flex justify-between items-center">
                             <div aria-label="Global" className="flex items-center justify-between lg:px-8 w-full">
                                 <h1 className="flex lg:flex-1">
@@ -54,8 +54,19 @@ const Header = ({ type = 'type1', title, sharing, prev }) => {
                                     {navigation.map((item) => (
                                         <a
                                             key={item.name}
-                                            href={item.href}
-                                            className="text-sm/6 font-semibold text-gray-900"
+                                            href={item.href === '#' ? undefined : item.href}
+                                            onClick={(e) => {
+                                                e.preventDefault(); // 기본 링크 이동 방지
+                                                if (item.id) {
+                                                    // item.id가 있는지 확인
+                                                    const element = document.getElementById(item.id);
+                                                    if (element) {
+                                                        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                                    }
+                                                }
+                                                setMobileMenuOpen(false); // 모바일 메뉴 닫기
+                                            }}
+                                            className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                                         >
                                             {item.name}
                                         </a>
