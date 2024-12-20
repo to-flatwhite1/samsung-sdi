@@ -1,4 +1,19 @@
+'use client';
+import { useState, useEffect } from 'react';
+
 export default function BusinessSection() {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 640); // Tailwind의 'sm' 기준 (640px 미만)
+        };
+
+        handleResize(); // 초기 실행
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     return (
         <>
             <div id="business" className="mb-[180px]">
@@ -7,9 +22,12 @@ export default function BusinessSection() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     {/* 첫 번째 카드 */}
                     <div
-                        className="cont_item.business1 relative h-[390px] bg-cover bg-center rounded-xl overflow-hidden"
+                        className="relative bg-cover bg-center rounded-xl overflow-hidden"
                         style={{
-                            backgroundImage: "url('/images/pattern/common/cont_item_business_01.png')",
+                            backgroundImage: isMobile
+                                ? "url('/images/pattern/common/cont_item_business_01_mo.png')"
+                                : "url('/images/pattern/common/cont_item_business_01.png')",
+                            height: isMobile ? '150px' : '390px', // 높이 변경
                         }}
                     >
                         <a
@@ -22,9 +40,12 @@ export default function BusinessSection() {
 
                     {/* 두 번째 카드 */}
                     <div
-                        className=" cont_item.business2 relative h-[390px] bg-cover bg-center rounded-xl overflow-hidden"
+                        className="relative bg-cover bg-center rounded-xl overflow-hidden"
                         style={{
-                            backgroundImage: "url('/images/pattern/common/cont_item_business_02.png')",
+                            backgroundImage: isMobile
+                                ? "url('/images/pattern/common/cont_item_business_02_mo.png')"
+                                : "url('/images/pattern/common/cont_item_business_02.png')",
+                            height: isMobile ? '150px' : '390px', // 높이 변경
                         }}
                     >
                         <a

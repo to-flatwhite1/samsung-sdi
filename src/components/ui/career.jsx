@@ -1,4 +1,5 @@
 import { Box, Grid, GridItem } from '@chakra-ui/react';
+import Image from 'next/image';
 import React from 'react';
 
 const Career = () => {
@@ -18,7 +19,7 @@ const Career = () => {
                 >
                     {/* 인재상 카드 */}
                     <GridItem>
-                        <div className="bg-[#2B3990] rounded-xl overflow-hidden">
+                        <div className="bg-[#3849b6] rounded-xl overflow-hidden">
                             <div className="p-6">
                                 <div className="mb-2">
                                     <h2 className="text-xl font-bold text-white">인재상</h2>
@@ -29,13 +30,13 @@ const Career = () => {
                                 <div className="grid grid-cols-3 gap-6">
                                     <div className="flex flex-col items-center">
                                         <div className="bg-blue-100 p-4 rounded-xl mb-3">
-                                            <div className="w-6 h-6 text-[#4052B5] flex items-center justify-center">
-                                                <svg viewBox="0 0 24 24" className="w-full h-full">
-                                                    <path
-                                                        fill="currentColor"
-                                                        d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zm0-2a8 8 0 100-16 8 8 0 000 16zm0-3a5 5 0 110-10 5 5 0 010 10z"
-                                                    />
-                                                </svg>
+                                            <div className="w-6 h-6 text-[#8e9df3] flex items-center justify-center">
+                                                <Image
+                                                    src="/images/pattern/main/ico_career01.png"
+                                                    width={40}
+                                                    height={40}
+                                                    alt=""
+                                                />
                                             </div>
                                         </div>
                                         <span className="text-gray-700 text-sm">열정과 도전</span>

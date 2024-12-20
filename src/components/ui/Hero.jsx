@@ -1,3 +1,5 @@
+'use client';
+
 import FadeUpText from '@/components/ui/FadeUpText';
 import React, { useState, useEffect } from 'react';
 

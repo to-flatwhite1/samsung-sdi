@@ -1,18 +1,18 @@
 'use client';
 
 import { Button, Container, Heading } from '@chakra-ui/react';
-import { ChevronLeft, Menu, Share } from 'lucide-react';
+import { ChevronLeft, Share } from 'lucide-react';
 import React, { useState } from 'react';
-import Navigation from './Navigation';
 import Image from 'next/image';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { Dialog, DialogPanel } from '@headlessui/react';
+import Link from 'next/link';
 
 const navigation = [
-    { name: 'SAMSUNG SDI', href: '#' },
-    { name: 'BUSINESS', href: '#', id: 'business' },
+    { name: 'SAMSUNG SDI', href: '/introduce' },
+    { name: 'BUSINESS', id: 'business' },
     { name: 'ESG', href: '#', id: 'ESG' },
-    { name: 'CAREER', href: '#', id: 'career' },
+    { name: 'CAREER', id: 'career' }, // CAREER 항목
     { name: 'IR', href: '#', id: 'stock-card' },
     { name: 'PR', href: '#', id: 'pr' },
 ];
@@ -22,23 +22,22 @@ const Header = ({ type = 'type1', title, sharing, prev }) => {
 
     const renderHeader = () => {
         switch (type) {
-            // 메인헤더
             case 'type1':
                 return (
                     <header className="fixed top-0 left-0 right-0 z-50 bg-white backdrop-blur-md flex items-center h-20">
                         <Container size="full" className="flex justify-between items-center">
                             <div aria-label="Global" className="flex items-center justify-between lg:px-8 w-full">
                                 <h1 className="flex lg:flex-1">
-                                    <a href="#" className="-m-1.5 p-1.5">
+                                    <Link href="/" passHref className="-m-1.5 p-1.5">
                                         <span className="sr-only">Your Company</span>
                                         <Image
-                                            alt=""
+                                            alt="Your Company Logo"
                                             src="/images/pattern/common/logo_samsungsdi.svg"
                                             width={30}
                                             height={30}
                                             className="h-7 w-auto"
                                         />
-                                    </a>
+                                    </Link>
                                 </h1>
                                 <div className="flex lg:hidden">
                                     <button
@@ -56,12 +55,13 @@ const Header = ({ type = 'type1', title, sharing, prev }) => {
                                             key={item.name}
                                             href={item.href === '#' ? undefined : item.href}
                                             onClick={(e) => {
-                                                e.preventDefault(); // 기본 링크 이동 방지
                                                 if (item.id) {
-                                                    // item.id가 있는지 확인
                                                     const element = document.getElementById(item.id);
                                                     if (element) {
+                                                        console.log(`Scrolling to ${item.id}`);
                                                         element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                                    } else {
+                                                        console.log(`Element with id "${item.id}" not found`);
                                                     }
                                                 }
                                                 setMobileMenuOpen(false); // 모바일 메뉴 닫기
@@ -73,9 +73,7 @@ const Header = ({ type = 'type1', title, sharing, prev }) => {
                                     ))}
                                 </nav>
                                 <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                                    <a href="#" className="text-sm/6 font-semibold text-gray-900">
-                                        Log in <span aria-hidden="true">&rarr;</span>
-                                    </a>
+                                    <a href="#" className="text-sm/6 font-semibold text-gray-900"></a>
                                 </div>
                             </div>
                             <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
@@ -86,10 +84,10 @@ const Header = ({ type = 'type1', title, sharing, prev }) => {
                                             <span className="sr-only">Your Company</span>
                                             <Image
                                                 alt=""
-                                                src="/images/pattern/common/logo.svg"
-                                                width={32}
-                                                height={32}
-                                                className="h-8 w-auto"
+                                                src="/images/pattern/common/logo_samsungsdi.svg"
+                                                width={30}
+                                                height={30}
+                                                className="h-6 w-auto"
                                             />
                                         </a>
                                         <button
@@ -114,14 +112,6 @@ const Header = ({ type = 'type1', title, sharing, prev }) => {
                                                     </a>
                                                 ))}
                                             </div>
-                                            <div className="py-6">
-                                                <a
-                                                    href="#"
-                                                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
-                                                >
-                                                    Log in
-                                                </a>
-                                            </div>
                                         </div>
                                     </div>
                                 </DialogPanel>
@@ -129,36 +119,6 @@ const Header = ({ type = 'type1', title, sharing, prev }) => {
                         </Container>
                     </header>
                 );
-            // 이전, 타이틀, 각페이지에 맞는 버튼
-            case 'type2':
-                return (
-                    <header className="fixed top-0 left-0 right-0 z-50 bg-white flex items-center h-14 border-b border-gray-200">
-                        <Container className="flex justify-between items-center relative">
-                            <Button variant="icon" align="left">
-                                <ChevronLeft strokeWidth={3} size={3} />
-                                <span className="blind">이전</span>
-                            </Button>
-                            {title && (
-                                <Heading
-                                    as="h1"
-                                    className="text-xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-                                >
-                                    {title}
-                                </Heading>
-                            )}
-                            {sharing && (
-                                <Button variant="icon" align="right">
-                                    <Share strokeWidth={3} />
-                                    <span className="blind">공유</span>
-                                </Button>
-                            )}
-                            {/* {등록 && <Button>등록</Button>} */}
-                        </Container>
-                    </header>
-                );
-            // 로그인 헤더
-            case 'type3':
-                return <Container>type3</Container>;
             default:
                 return <Container>default</Container>;
         }

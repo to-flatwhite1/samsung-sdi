@@ -1,8 +1,3 @@
-import { Box, Flex } from '@chakra-ui/react';
-import { ChevronDown } from 'lucide-react';
-import Image from 'next/image';
-import Link from 'next/link';
-
 const StockCard = () => {
     return (
         <div id="stock-card" className="flex flex-col mb-[180px]">

@@ -1,11 +1,11 @@
 import { mockNews } from '@/data/newsData';
-import Hero from './hero';
-import Bento from './bento';
-import Business from './business';
-import Ir from '@/components/ui/ir';
-import StockCard from '@/components/ui/ir';
-import Career, { CardContainer } from '@/components/ui/career';
+
 import { Pr } from '@/components/ui/PR';
+import Career from '@/components/ui/Career';
+import StockCard from '@/components/ui/StockCard';
+import Esg from '@/components/ui/Esg';
+import Hero from '@/components/ui/Hero';
+import BusinessSection from '@/components/ui/Business';
 
 const Home = () => {
     return (
@@ -13,11 +13,11 @@ const Home = () => {
             <Hero />
             <section className="content">
                 <div className="container">
-                    <Business />
-                    <Bento />
-                    <Career />
+                    <BusinessSection />
+                    <Esg />
                     <StockCard />
-                    <Pr mockNews={mockNews} />
+                    <Career />
+                    <Pr />
                 </div>
             </section>
         </>

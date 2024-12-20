@@ -2,7 +2,7 @@ import { slides } from '@/data/newsData';
 import Image from 'next/image';
 import React, { useState } from 'react';
 
-const PrSlide = () => {
+const Slide = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
 
     const nextSlide = () => {
@@ -26,7 +26,7 @@ const PrSlide = () => {
     };
 
     return (
-        <div>
+        <div id="pr" className="mb-[120px]">
             <div className="lg:flex">
                 <div>
                     <h1 className="text-6xl font-bold text-white mb-[20px]">PR Center</h1>
@@ -34,7 +34,7 @@ const PrSlide = () => {
                     <div className="lg:w-80 mb-10 lg:mb-0 flex lg:flex-col justify-between items-center lg:items-start">
                         <button
                             onClick={nextSlide}
-                            className="w-12 h-12 rounded-full bg-black text-white flex items-center justify-center hover:rotate-180 transition-transform duration-300"
+                            className="w-12 h-12 rounded-full bg-black text-white flex items-center justify-center hover:rotate-90 transition-transform duration-300"
                             aria-label="Next slide"
                         >
                             →
@@ -55,7 +55,7 @@ const PrSlide = () => {
                                 key={index}
                                 className="min-w-[370px] lg:min-w-[350px] bg-white rounded-2xl overflow-hidden"
                             >
-                                <div className="relative h-[300px] lg:h-[320px] overflow-hidden">
+                                <div className="relative h-[300px] lg:h-[250px] overflow-hidden">
                                     <Image
                                         src={slide.imageUrl}
                                         alt={slide.title}
@@ -69,7 +69,7 @@ const PrSlide = () => {
                                         <span>{slide.date}</span>
                                         <span className="ml-2">{slide.category}</span>
                                     </div>
-                                    <h3 className="text-2xl font-bold mt-9 mb-auto">{slide.title}</h3>
+                                    <h3 className="text-2xl font-bold mt-8 mb-auto">{slide.title}</h3>
                                     <p className="text-sm mt-4">{slide.desc}</p>
                                 </div>
                             </div>
@@ -81,4 +81,4 @@ const PrSlide = () => {
     );
 };
 
-export default PrSlide;
+export default Slide;

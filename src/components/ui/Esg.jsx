@@ -1,6 +1,4 @@
-import { Box } from '@chakra-ui/react';
-
-export default function Bento() {
+export default function Esg() {
     return (
         <div id="ESG" className="mb-[180px]">
             <h1 className="text-6xl font-bold text-white mb-[20px]">ESG</h1>
@@ -9,10 +7,11 @@ export default function Bento() {
                 노력합니다.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+            {/* 모바일에서 grid-cols-2, md 이상에서 grid-cols-4 */}
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6">
                 {/* ESG 전략 */}
                 <div
-                    className="relative h-[390px] bg-cover bg-center rounded-xl"
+                    className="relative h-[238px] md:h-[330px] bg-cover bg-center rounded-xl"
                     style={{
                         backgroundImage: "url('/images/pattern/common/cont_item_esg_01.png')",
                     }}
@@ -27,7 +26,7 @@ export default function Bento() {
 
                 {/* 환경 */}
                 <div
-                    className="relative h-[390px] bg-cover bg-center rounded-xl"
+                    className="relative h-[238px] md:h-[330px] bg-cover bg-center rounded-xl"
                     style={{
                         backgroundImage: "url('/images/pattern/common/cont_item_esg_02.png')",
                     }}
@@ -42,7 +41,7 @@ export default function Bento() {
 
                 {/* 사회 */}
                 <div
-                    className="relative h-[390px] bg-cover bg-center rounded-xl"
+                    className="relative h-[238px] md:h-[330px] bg-cover bg-center rounded-xl"
                     style={{
                         backgroundImage: "url('/images/pattern/common/cont_item_esg_03.png')",
                     }}
@@ -57,7 +56,7 @@ export default function Bento() {
 
                 {/* 지배구조 */}
                 <div
-                    className="relative h-[390px] bg-cover bg-center rounded-xl"
+                    className="relative h-[238px] md:h-[330px]  bg-cover bg-center rounded-xl"
                     style={{
                         backgroundImage: "url('/images/pattern/common/cont_item_esg_04.png')",
                     }}
