@@ -11,7 +11,7 @@ export const slides = [
         category: 'News',
         title: '파트너사와 함께 "2030년 글로벌 Top Tier 회사"로 동반성장',
         desc: '삼성SDI는 지난 13일 더블트리 바이힐튼 서울 판교 호텔에서 "삼성SDI 동반성장 DAY"를 개최했다고 밝혔다.',
-        imageUrl: '/images/pattern/common/new/imageView (1).jfif',
+        imageUrl: '/images/pattern/common/1731539672749.jpg',
     },
     {
         date: '2024. 9. 14',
