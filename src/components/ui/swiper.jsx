@@ -42,7 +42,6 @@ const PrSlide = () => {
                     </div>
                 </div>
 
-                {/* 슬라이더 섹션 */}
                 <div className="lg:flex-1 overflow-hidden">
                     <div
                         className="flex gap-6 transition-transform duration-300"
