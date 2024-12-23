@@ -18,7 +18,7 @@ export const slides = [
         category: 'News',
         title: '삼성SDI, CES 2025 혁신상 4개 수상',
         desc: '삼성SDI가 전기차 배터리, ESS용 배터리, 원통형 배터리 등 다양한 PRiMX(프라이맥스) 배터리의 기술력을 입증했다.',
-        imageUrl: '/images/pattern/common/new/imageView.jfif',
+        imageUrl: '/images/pattern/common/1731625592148.jpg',
     },
     {
         date: '2024. 9. 13',

@@ -1,6 +1,6 @@
 'use client';
 
-import '@/styles/globals.scss';
+import '@/styles/globals.css';
 import { Providers } from '@/components/providers';
 import SkipNav from '@/components/layout/header/SkipNav';
 import Header from '@/components/layout/header/Header';
@@ -12,6 +12,7 @@ export default function RootLayout({ children }) {
             <head>
                 <meta charSet="UTF-8" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <link rel="icon" href="/favicon.ico" />
                 <title>삼성SDI(SAMSUNG SDI)</title>
                 <meta property="og:type" content="website" />
                 <meta property="og:title" content="삼성SDI (SAMSUNG SDI)" />
